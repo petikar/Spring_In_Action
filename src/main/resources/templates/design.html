@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>The house of your dreams</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h1>Design your house!</h1>
+<img th:src="@{/images/designHouse.png}"/>
+<form method="POST" th:object="${design}">
+
+    <div class="grid">
+
+                <span class="validationError"
+                      th:if="${#fields.hasErrors('parts')}"
+                      th:errors="*{parts}">parts Error</span>
+
+        <div class="part-group" id="walls">
+            <h3>Pick your wall:</h3>
+            <div th:each="part : ${wall}">
+                <input th:field="*{parts}" type="checkbox"
+                       th:value="${part.id}"/>
+                <span th:text="${part.name}">PART</span><br/>
+            </div>
+        </div>
+
+
+        <div class="part-group" id="roofs">
+            <h3>Pick your roof:</h3>
+            <div th:each="part : ${roof}">
+                <input th:field="*{parts}" type="checkbox"
+                       th:value="${part.id}"/>
+                <span th:text="${part.name}">PART</span><br/>
+            </div>
+        </div>
+
+
+        <div class="part-group" id="foundations">
+            <h3>Pick your foundation:</h3>
+            <div th:each="part : ${foundation}">
+                <input th:field="*{parts}" type="checkbox"
+                       th:value="${part.id}"/>
+                <span th:text="${part.name}">PART</span><br/>
+            </div>
+        </div>
+
+
+        <div class="part-group" id="floors">
+            <h3>Pick your floor:</h3>
+            <div th:each="part : ${floor}">
+                <input th:field="*{parts}" type="checkbox"
+                       th:value="${part.id}"/>
+                <span th:text="${part.name}">PART</span><br/>
+            </div>
+        </div>
+
+
+        <div class="part-group" id="windows">
+            <h3>Pick your window:</h3>
+            <div th:each="part : ${window}">
+                <input th:field="*{parts}" type="checkbox"
+                       th:value="${part.id}"/>
+                <span th:text="${part.name}">PART</span><br/>
+            </div>
+        </div>
+
+
+        <div class="part-group" id="balconies">
+            <h3>Pick your balcony:</h3>
+            <div th:each="part : ${balcony}">
+                <input th:field="*{parts}" type="checkbox"
+                       th:value="${part.id}"/>
+                <span th:text="${part.name}">PART</span><br/>
+            </div>
+        </div>
+
+
+        <div>
+            <h3>Name your house creation:</h3>
+            <input type="text" th:field="*{name}"/>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('name')}"
+                  th:errors="*{name}">Name Error</span>
+            <br/>
+
+            <button>Submit Your House</button>
+        </div>
+
+</form>
+</body>
+</html>
