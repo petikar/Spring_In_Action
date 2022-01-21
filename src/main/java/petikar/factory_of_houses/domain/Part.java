@@ -1,13 +1,20 @@
 package petikar.factory_of_houses.domain;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.annotation.Id;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Data
-@RequiredArgsConstructor
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Part {
-    @Id
+
+   @Id
     private final String id;
     private final String name;
     private final Type type;
