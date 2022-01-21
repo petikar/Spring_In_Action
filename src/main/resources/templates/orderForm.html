@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
 <body>
-<form method="POST" th:action="@{/orders}" th:object="${houseCreator}">
+<form method="POST" th:action="@{/orders}" th:object="${houseOrder}">
     <h1>Order for the construction of a house!</h1>
     <img th:src="@{/images/designHouse.png}"/>
     <a th:href="@{/design}" id="another">Design another house</a><br/>
