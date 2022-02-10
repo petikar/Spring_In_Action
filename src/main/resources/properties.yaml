@@ -1,0 +1,10 @@
+spring:
+  data:
+    cassandra:
+      keyspace-name: houseofyourdreams
+      schema-action: recreate
+      local-datacenter: datacenter1
+      username: house
+      password: ofyourdreams
+      port: 9043
+      contact-points: 127:0:0:1

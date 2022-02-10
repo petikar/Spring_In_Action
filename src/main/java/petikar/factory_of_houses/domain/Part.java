@@ -1,20 +1,16 @@
 package petikar.factory_of_houses.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.io.Serializable;
 
 @Data
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-public class Part {
+@Table("parts")
+public class Part implements Serializable {
 
-   @Id
+    @PrimaryKey
     private final String id;
     private final String name;
     private final Type type;
